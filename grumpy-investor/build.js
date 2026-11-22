@@ -20,7 +20,7 @@ const posts = [
     ['Бонд', 'И јас имам визија. Се гледам како одам дома.'] ] },
   { file: '09-5', chapter: 'ПОГЛАВЈЕ 9', title: 'СТАРТАП ПИТЧ', page: '5/6', lines: [
     ['Стартапот', 'Ќе бидеме следниот Uber.'],
-    ['Бонд', 'Ве викнав такси. Платете со крипто.'] ] },
+    ['Бонд', 'Ви викнав такси. Платете со крипто.'] ] },
   { file: '09-6', chapter: 'ПОГЛАВЈЕ 9', title: 'СТАРТАП ПИТЧ', page: '6/6', small: true, lines: [
     ['Стартапот', 'Имаме 10.000 корисници!'],
     ['Бонд', 'Колку плаќаат?'],
@@ -78,7 +78,6 @@ body{width:1080px;height:1350px;overflow:hidden;font-family:Ral,sans-serif;color
 
 const html = (p) => `<!DOCTYPE html><html><head><meta charset="utf-8"><style>${css}</style></head><body>
 <div class="post ${p.small ? 'small' : ''} ${p.cover ? 'cover' : ''}">
-  <div class="page">${p.page || ''}</div>
   <div class="head"><div class="tag">${p.chapter}</div></div>
   <div class="title">${p.title}</div>
   ${p.cover ? `<div class="lead">${p.cover}</div>` : `<div class="chat">${p.lines.map(([who, t]) =>
