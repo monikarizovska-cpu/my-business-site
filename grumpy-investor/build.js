@@ -14,7 +14,7 @@ const posts = [
     ['Бонд', 'Ако се лажеме…'] ] },
   { file: '09-3', chapter: 'ПОГЛАВЈЕ 9', title: 'СТАРТАП ПИТЧ', page: '3/6', lines: [
     ['Стартапот', 'Ова ќе се наплаќа со крипто.'],
-    ['Бонд', 'Абе заеби го тоа…'] ] },
+    ['Бонд', 'Абе заеби ти тоа…'] ] },
   { file: '09-4', chapter: 'ПОГЛАВЈЕ 9', title: 'СТАРТАП ПИТЧ', page: '4/6', lines: [
     ['Стартапот', 'Немаме приход, ама имаме визија.'],
     ['Бонд', 'И јас имам визија. Се гледам како одам дома.'] ] },
@@ -40,54 +40,53 @@ const posts = [
     ['Инфлуенсерот', 'Мојот курс ќе те направи милионер!'],
     ['Бонд', 'Ти милионер си?'],
     ['Инфлуенсерот', 'Ќе бидам, кога ќе го купиш курсот.'],
-    ['Бонд', 'Абе заеби го тоа…'] ] },
+    ['Бонд', 'Абе заеби ти тоа…'] ] },
   { file: '13-klientot', chapter: 'ПОГЛАВЈЕ 13', title: 'КЛИЕНТОТ', lines: [
     ['Клиентот', 'Сакам 50% принос годишно, без ризик.'],
     ['Бонд', 'И јас сакам понеделник да не постои.'] ] },
 ];
 
 const css = `
-@font-face{font-family:Oswald;src:url(${font('Oswald-Bold.ttf')});font-weight:700}
-@font-face{font-family:Mont;src:url(${font('Montserrat-Medium.ttf')});font-weight:500}
-@font-face{font-family:Mont;src:url(${font('Montserrat-ExtraBold.ttf')});font-weight:800}
+@font-face{font-family:Ral;src:url(${font('Raleway-Light.ttf')});font-weight:300}
+@font-face{font-family:Ral;src:url(${font('Raleway-Medium.ttf')});font-weight:500}
+@font-face{font-family:Ral;src:url(${font('Raleway-ExtraBold.ttf')});font-weight:800}
 *{margin:0;padding:0;box-sizing:border-box}
-body{width:1080px;height:1350px;overflow:hidden;font-family:Mont,sans-serif}
+body{width:1080px;height:1350px;overflow:hidden;font-family:Ral,sans-serif;color:#fff;font-variant-numeric:lining-nums;font-feature-settings:"lnum"}
 .post{width:1080px;height:1350px;display:flex;flex-direction:column;position:relative;
-  background:#1F4FD8 repeating-linear-gradient(180deg,rgba(0,0,0,.0) 0 38px,rgba(10,20,80,.28) 38px 64px)}
-.head{display:flex;justify-content:space-between;align-items:center;padding:52px 64px 0}
-.tag{font-family:Oswald;font-size:34px;letter-spacing:3px;color:#1F4FD8;background:#F2E6D8;padding:8px 22px;border-radius:10px}
-.page{font-family:Oswald;font-size:30px;color:#F2E6D8;opacity:.85}
-.title{font-family:Oswald;font-size:92px;line-height:1;color:#fff;padding:22px 64px 0;letter-spacing:1px;
-  text-shadow:0 6px 0 rgba(10,20,80,.45)}
-.chat{display:flex;flex-direction:column;gap:22px;padding:34px 64px 0}
-.msg{max-width:84%;padding:22px 30px 24px;border-radius:30px;position:relative;box-shadow:0 10px 0 rgba(10,20,80,.35)}
-.who{font-family:Oswald;font-size:26px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
-.txt{font-weight:800;font-size:44px;line-height:1.18}
-.small .txt{font-size:36px}.small .msg{padding:16px 26px 18px}.small .chat{gap:14px;padding-top:24px}.small .title{font-size:72px}
-.them{align-self:flex-start;background:#fff;color:#3B2A20;border-bottom-left-radius:6px}
-.them .who{color:#1F4FD8}
-.bond{align-self:flex-end;background:#3B2A20;color:#F2E6D8;border-bottom-right-radius:6px}
-.bond .who{color:#E8A3A0}
-.photo{flex:1;margin-top:34px;position:relative;background:url(${cat}) center bottom/cover no-repeat;min-height:420px}
-.photo:before{content:"";position:absolute;inset:0 0 auto 0;height:140px;background:linear-gradient(#1F4FD8,rgba(31,79,216,0))}
-.foot{padding:24px 64px 28px;display:flex;justify-content:space-between;align-items:center;background:#3B2A20}
-.brand{font-family:Oswald;font-size:40px;color:#fff;letter-spacing:2px;line-height:1}
-.brand span{display:block;font-family:Mont;font-weight:500;font-size:22px;letter-spacing:1px;color:#F2E6D8;margin-top:8px}
-.catch{font-family:Oswald;font-size:28px;color:#E8A3A0}
-.cover .lead{font-weight:800;font-size:58px;line-height:1.15;color:#F2E6D8;padding:30px 64px 0}
-.cover .title{font-size:130px}
+  background:radial-gradient(circle at 92% 82%,rgba(70,160,200,.75),rgba(70,160,200,0) 30%),
+             radial-gradient(circle at 0% 30%,rgba(60,70,200,.6),rgba(60,70,200,0) 35%),
+             linear-gradient(160deg,#4A12C8 0%,#4318C4 55%,#3B3FC0 100%)}
+.head{display:flex;flex-direction:column;align-items:center;padding-top:56px}
+.tag{font-weight:800;font-size:26px;letter-spacing:6px;color:#5EE6C4}
+.page{position:absolute;top:56px;right:64px;font-weight:500;font-size:26px;color:rgba(255,255,255,.7)}
+.title{font-weight:800;font-size:78px;line-height:1.05;color:#5EE6C4;text-align:center;padding:14px 60px 0}
+.chat{display:flex;flex-direction:column;gap:22px;padding:40px 64px 0}
+.msg{max-width:86%;padding:20px 30px 22px;border-radius:28px}
+.who{font-weight:800;font-size:22px;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px}
+.txt{font-weight:300;font-size:44px;line-height:1.2}
+.small .txt{font-size:36px}.small .msg{padding:14px 26px 16px}.small .chat{gap:14px;padding-top:28px}.small .title{font-size:64px}
+.them{align-self:flex-start;border:2px solid rgba(255,255,255,.75);border-bottom-left-radius:6px;background:rgba(255,255,255,.06)}
+.them .who{color:rgba(255,255,255,.75)}
+.bond{align-self:flex-end;background:#5EE6C4;color:#2A0F7A;border-bottom-right-radius:6px}
+.bond .txt{font-weight:500}.bond .who{color:#4A12C8}
+.photo{flex:1;margin:34px 64px 0;min-height:400px;border-radius:36px;border:4px solid #5EE6C4;
+  background:url(${cat}) center bottom/cover no-repeat}
+.foot{padding:26px 64px 36px;display:flex;justify-content:space-between;align-items:flex-end;font-weight:300;font-size:24px;line-height:1.3}
+.cover .lead{font-weight:300;font-size:50px;line-height:1.25;text-align:center;padding:36px 80px 0}
+.cover .title{font-size:110px;padding-top:30px}
 `;
 
-const esc = (s) => s;
 const html = (p) => `<!DOCTYPE html><html><head><meta charset="utf-8"><style>${css}</style></head><body>
 <div class="post ${p.small ? 'small' : ''} ${p.cover ? 'cover' : ''}">
-  <div class="head"><div class="tag">${p.chapter}</div><div class="page">${p.page || ''}</div></div>
+  <div class="page">${p.page || ''}</div>
+  <div class="head"><div class="tag">${p.chapter}</div></div>
   <div class="title">${p.title}</div>
   ${p.cover ? `<div class="lead">${p.cover}</div>` : `<div class="chat">${p.lines.map(([who, t]) =>
-    `<div class="msg ${who === 'Бонд' ? 'bond' : 'them'}"><div class="who">${who}</div><div class="txt">${esc(t)}</div></div>`).join('')}</div>`}
-  <div class="photo"></div><div class="foot">
-    <div class="brand">НАМЌОРЕНИОТ ИНВЕСТИТОР<span>The Grumpy Investor</span></div>
-    <div class="catch">${p.cover ? 'ЛИЗГАЈ →' : 'НЕ МИ СЕ ЖИВЕЕ.'}</div>
+    `<div class="msg ${who === 'Бонд' ? 'bond' : 'them'}"><div class="who">${who}</div><div class="txt">${t}</div></div>`).join('')}</div>`}
+  <div class="photo"></div>
+  <div class="foot">
+    <div>Намќорениот инвеститор<br>The Grumpy Investor</div>
+    <div>${p.cover ? 'Лизгај →' : 'Не ми се живее.'}</div>
   </div>
 </div></body></html>`;
 
