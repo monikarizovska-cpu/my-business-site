@@ -56,29 +56,30 @@ body{width:1080px;height:1350px;overflow:hidden;font-family:Ral,sans-serif;color
   background:radial-gradient(circle at 92% 82%,rgba(70,160,200,.75),rgba(70,160,200,0) 30%),
              radial-gradient(circle at 0% 30%,rgba(60,70,200,.6),rgba(60,70,200,0) 35%),
              linear-gradient(160deg,#4A12C8 0%,#4318C4 55%,#3B3FC0 100%)}
-.head{display:flex;flex-direction:column;align-items:center;padding-top:56px}
-.tag{font-weight:800;font-size:26px;letter-spacing:6px;color:#5EE6C4}
+.head{display:flex;flex-direction:column;align-items:center;padding-top:44px}
+.head svg{display:block}.lname{font-weight:800;font-size:30px;letter-spacing:1px;color:#fff;margin-top:12px}.lsub{font-weight:800;font-size:15px;letter-spacing:7px;color:#5B8DEF;margin-top:4px;padding-left:7px}
 .page{position:absolute;top:56px;right:64px;font-weight:500;font-size:26px;color:rgba(255,255,255,.7)}
-.title{font-weight:800;font-size:78px;line-height:1.05;color:#5EE6C4;text-align:center;padding:14px 60px 0}
+.title{font-weight:800;font-size:70px;line-height:1.05;color:#5EE6C4;text-align:center;padding:22px 60px 0}
 .chat{display:flex;flex-direction:column;gap:22px;padding:40px 64px 0}
 .msg{max-width:86%;padding:20px 30px 22px;border-radius:28px}
 .who{font-weight:800;font-size:22px;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px}
 .txt{font-weight:300;font-size:44px;line-height:1.2}
-.small .txt{font-size:36px}.small .msg{padding:14px 26px 16px}.small .chat{gap:14px;padding-top:28px}.small .title{font-size:64px}
+.small .txt{font-size:36px}.small .msg{padding:14px 26px 16px}.small .chat{gap:12px;padding-top:22px}.small .title{font-size:58px}
 .them{align-self:flex-start;border:2px solid rgba(255,255,255,.75);border-bottom-left-radius:6px;background:rgba(255,255,255,.06)}
 .them .who{color:rgba(255,255,255,.75)}
 .bond{align-self:flex-end;background:#5EE6C4;color:#2A0F7A;border-bottom-right-radius:6px}
 .bond .txt{font-weight:500}.bond .who{color:#4A12C8}
-.photo{flex:1;margin:34px 64px 0;min-height:400px;border-radius:36px;border:4px solid #5EE6C4;
+.photo{flex:1;margin:30px 64px 0;min-height:340px;border-radius:36px;border:4px solid #5EE6C4;
   background:url(${cat}) center bottom/cover no-repeat}
 .foot{padding:26px 64px 36px;display:flex;justify-content:space-between;align-items:flex-end;font-weight:300;font-size:24px;line-height:1.3}
 .cover .lead{font-weight:300;font-size:50px;line-height:1.25;text-align:center;padding:36px 80px 0}
-.cover .title{font-size:110px;padding-top:30px}
+.cover .title{font-size:104px;padding-top:30px}
 `;
 
 const html = (p) => `<!DOCTYPE html><html><head><meta charset="utf-8"><style>${css}</style></head><body>
 <div class="post ${p.small ? 'small' : ''} ${p.cover ? 'cover' : ''}">
-  <div class="head"><div class="tag">${p.chapter}</div></div>
+  <div class="head"><svg width="170" height="92" viewBox="0 0 170 92"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5EE6C4"/><stop offset="1" stop-color="#4C8EF2"/></linearGradient></defs><g fill="none" stroke="url(#g)" stroke-width="9" stroke-linejoin="round"><rect x="32" y="44" width="30" height="40"/><rect x="72" y="25" width="30" height="59"/><rect x="112" y="6" width="30" height="78"/></g><rect x="10" y="82" width="150" height="9" rx="3" fill="#4C8EF2"/></svg>
+    <div class="lname">ФИНАНСИСКИ</div><div class="lsub">ПЛАНЕР</div></div>
   <div class="title">${p.title}</div>
   ${p.cover ? `<div class="lead">${p.cover}</div>` : `<div class="chat">${p.lines.map(([who, t]) =>
     `<div class="msg ${who === 'Бонд' ? 'bond' : 'them'}"><div class="who">${who}</div><div class="txt">${t}</div></div>`).join('')}</div>`}
