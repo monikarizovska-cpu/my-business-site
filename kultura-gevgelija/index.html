@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Комуникациска стратегија за култура во Гевгелија</title>
+<meta name="description" content="Јасен водич и решенија за комуникација на Домот на култура Македонија и Библиотеката Гоце Делчев во Гевгелија.">
+<style>
+  :root{
+    --bg:#FFFCF2; --text:#111111; --muted:#2B2B2B; --accent:#0A3A8C; --accent-text:#FFFFFF;
+    --card:#FFFFFF; --border:#111111; --soft:#FFF1C9; --ok:#0B5D1E;
+    --fs:20px; --lh:1.75; --ls:0.02em; --ws:0.1em;
+  }
+  body.contrast{
+    --bg:#000000; --text:#FFF200; --muted:#FFFFFF; --accent:#FFF200; --accent-text:#000000;
+    --card:#000000; --border:#FFF200; --soft:#1A1A1A; --ok:#7CFF7C;
+  }
+  body.spacing{ --lh:2.1; --ls:0.06em; --ws:0.2em; }
+  *{box-sizing:border-box}
+  html{font-size:var(--fs)}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family: Verdana, "Atkinson Hyperlegible", Tahoma, Arial, sans-serif;
+    font-size:1rem; line-height:var(--lh); letter-spacing:var(--ls); word-spacing:var(--ws);
+    text-align:left;
+  }
+  em,i{font-style:normal;font-weight:700}
+  a{color:var(--accent); text-decoration:underline; text-underline-offset:3px; font-weight:700}
+  :focus-visible{outline:4px solid #FF6A00; outline-offset:3px}
+  .skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--accent-text);padding:12px 18px;z-index:99}
+  .skip:focus{left:12px;top:12px}
+  .wrap{max-width:46rem;margin:0 auto;padding:0 1.1rem}
+  header.top{background:var(--accent);color:var(--accent-text);padding:1.4rem 0 1.2rem}
+  header.top h1{margin:0 0 .4rem;font-size:1.6rem;line-height:1.35}
+  header.top p{margin:0;font-size:1.05rem}
+  body.contrast header.top{border-bottom:4px solid var(--border)}
+
+  .tools{position:sticky;top:0;z-index:50;background:var(--soft);border-bottom:3px solid var(--border)}
+  .tools .wrap{display:flex;flex-wrap:wrap;gap:.5rem;padding-top:.6rem;padding-bottom:.6rem;align-items:center}
+  .tools span{font-weight:700;margin-right:.3rem}
+  button,.btn{
+    font:inherit;font-size:.9rem;font-weight:700;letter-spacing:normal;word-spacing:normal;
+    background:var(--card);color:var(--text);border:3px solid var(--border);border-radius:10px;
+    padding:.45rem .8rem;cursor:pointer;min-height:44px;
+  }
+  button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text)}
+  button:hover{text-decoration:underline}
+
+  nav.toc{margin:1.5rem 0}
+  nav.toc ol{padding-left:1.4rem}
+  nav.toc li{margin:.3rem 0}
+
+  section{scroll-margin-top:5rem;padding:1.6rem 0;border-bottom:3px dashed var(--border)}
+  h2{font-size:1.45rem;line-height:1.35;margin:.2rem 0 1rem}
+  h3{font-size:1.15rem;line-height:1.4;margin:1.6rem 0 .6rem}
+  p{margin:0 0 1rem;max-width:40rem}
+  ul,ol{padding-left:1.4rem;margin:0 0 1rem}
+  li{margin:.35rem 0}
+
+  .card{background:var(--card);border:3px solid var(--border);border-radius:14px;padding:1rem 1.2rem;margin:1rem 0}
+  .card h3{margin-top:.2rem}
+  .key{background:var(--soft);border-left:10px solid var(--accent);padding:.9rem 1.1rem;margin:1rem 0;border-radius:6px}
+  body.contrast .key{border:3px solid var(--border);border-left-width:10px}
+  .step{display:flex;gap:.9rem;align-items:flex-start;margin:.9rem 0}
+  .num{flex:0 0 2.6rem;height:2.6rem;border-radius:50%;background:var(--accent);color:var(--accent-text);
+       display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem}
+  .step p{margin:0}
+  .tag{display:inline-block;border:2px solid var(--border);border-radius:8px;padding:0 .45rem;font-size:.85rem;font-weight:700;margin-right:.3rem}
+
+  .tablewrap{overflow-x:auto;margin:1rem 0}
+  table{border-collapse:collapse;width:100%;min-width:34rem;background:var(--card)}
+  th,td{border:2px solid var(--border);padding:.6rem .7rem;vertical-align:top;text-align:left}
+  th{background:var(--soft)}
+  caption{text-align:left;font-weight:700;padding:.4rem 0}
+
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.7rem;margin:1rem 0}
+  .fact{border:3px solid var(--border);border-radius:12px;padding:.7rem .9rem;background:var(--card)}
+  .fact b{display:block;font-size:.85rem}
+  .fact div{font-size:1.1rem;font-weight:700}
+
+  .copy{white-space:pre-wrap;background:var(--soft);border:2px solid var(--border);border-radius:10px;padding:.9rem;font-family:inherit}
+  .ok{color:var(--ok);font-weight:700}
+  .yes::before{content:"✔ ";font-weight:700}
+  .no::before{content:"✘ ";font-weight:700}
+
+  label{display:block;font-weight:700;margin:1rem 0 .3rem}
+  textarea{width:100%;min-height:5.5rem;font:inherit;font-size:1rem;line-height:1.6;color:var(--text);background:var(--card);
+           border:3px solid var(--border);border-radius:10px;padding:.6rem}
+  .row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+  footer{padding:2rem 0 3rem;font-size:.9rem}
+
+  @media (max-width:600px){ :root{--fs:18px} header.top h1{font-size:1.35rem} }
+  @media print{
+    .tools,.skip,nav.toc,.row,.noprint{display:none!important}
+    body{background:#fff;color:#000}
+    section{page-break-inside:avoid;border:0}
+    header.top{background:#fff;color:#000;border-bottom:3px solid #000}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Оди до содржината</a>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Комуникациска стратегија за култура во Гевгелија</h1>
+    <p>Јасен водич и готови решенија. Направено од работата на учесниците во работилницата.</p>
+  </div>
+</header>
+
+<div class="tools" role="region" aria-label="Алатки за читање">
+  <div class="wrap">
+    <span>Читање:</span>
+    <button id="smaller" type="button" aria-label="Помали букви">А−</button>
+    <button id="bigger" type="button" aria-label="Поголеми букви">А+</button>
+    <button id="contrast" type="button" aria-pressed="false">Висок контраст</button>
+    <button id="spacing" type="button" aria-pressed="false">Поголем проред</button>
+    <button id="speak" type="button" aria-pressed="false">Читај на глас</button>
+  </div>
+</div>
+
+<main id="main" class="wrap">
+
+<nav class="toc" aria-label="Содржина">
+  <h2>Што има на оваа страна</h2>
+  <ol>
+    <li><a href="#za-sto">За што служи оваа страна</a></li>
+    <li><a href="#5-cekori">Стратегија во 5 чекори</a></li>
+    <li><a href="#dom">Решение за Домот на култура „Македонија“</a></li>
+    <li><a href="#foto">Бесплатна фото секција за деца</a></li>
+    <li><a href="#biblioteka">Решение за Библиотеката „Гоце Делчев“</a></li>
+    <li><a href="#plan">План за 12 месеци</a></li>
+    <li><a href="#merenje">Како мериме дали успеваме</a></li>
+    <li><a href="#sablon">Празен шаблон за пополнување</a></li>
+    <li><a href="#jasno">Правила за јасни објави</a></li>
+  </ol>
+</nav>
+
+<!-- 1 -->
+<section id="za-sto">
+  <h2>1. За што служи оваа страна</h2>
+  <p>Институциите во Гевгелија прават добри програми. Многу луѓе не знаат за нив.</p>
+  <p>Оваа страна ви помага да кажете кој сте, што нудите и кога. Јасно и редовно.</p>
+  <div class="key">
+    <p><strong>Ќе најдете:</strong></p>
+    <ul>
+      <li>шаблон во 5 чекори за секоја институција</li>
+      <li>готово решение за Домот на култура „Македонија“</li>
+      <li>готово решение за Библиотеката „Гоце Делчев“</li>
+      <li>план за една година и начин за мерење</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="5-cekori">
+  <h2>2. Стратегија во 5 чекори</h2>
+  <p>Одете по овој ред. Секој чекор одговара на едно прашање.</p>
+
+  <div class="step"><div class="num" aria-hidden="true">1</div>
+    <p><strong>Предизвици.</strong> Што не функционира денес? Кој не доаѓа кај нас?</p></div>
+  <div class="step"><div class="num" aria-hidden="true">2</div>
+    <p><strong>Тактики.</strong> Кои конкретни акции ќе ги направиме?</p></div>
+  <div class="step"><div class="num" aria-hidden="true">3</div>
+    <p><strong>Публика и канали.</strong> Кому се обраќаме? Каде ги наоѓаме тие луѓе?</p></div>
+  <div class="step"><div class="num" aria-hidden="true">4</div>
+    <p><strong>Тон.</strong> Како зборуваме? Топло, кратко, разбирливо.</p></div>
+  <div class="step"><div class="num" aria-hidden="true">5</div>
+    <p><strong>Уникатност и содржина.</strong> Што имаме ние, а го нема никој друг? Тоа е нашата содржина.</p></div>
+
+  <div class="key">
+    <p><strong>Чекор 6, на крај на годината:</strong> евалуација. Споредете ги бројките со почетокот. Задржете го она што функционира. Сменете го она што не функционира.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="dom">
+  <h2>3. Решение за ЈОУ Дом на култура „Македонија“, Гевгелија</h2>
+  <div class="key"><p><strong>Главна порака:</strong> Домот е место за култура за секоја возраст. Од деца до пензионери.</p></div>
+
+  <h3>Чекор 1. Предизвици</h3>
+  <ul>
+    <li>Како да привлечеме нова публика.</li>
+    <li>Публиката е различна. Деца, млади, родители, пензионери. Секој бара друга порака.</li>
+    <li>Луѓето често дознаваат за настан доцна или воопшто не дознаваат.</li>
+  </ul>
+
+  <h3>Чекор 2. Тактики</h3>
+  <ul>
+    <li><strong>Редовни објави.</strong> Најмалку 3 објави неделно, во исти денови.</li>
+    <li><strong>Бесплатни работилници.</strong> Фотографија, глума, музика, ликовно.</li>
+    <li><strong>Отворени врати.</strong> Еден ден во месецот секој може да влезе и да види како работиме.</li>
+    <li><strong>Наградни игри со влезници.</strong> Споделете ја објавата, освојте карти за претстава.</li>
+    <li><strong>Попусти за семејства.</strong> Пакет карти за родители и деца.</li>
+  </ul>
+
+  <h3>Чекор 3. Публика и канали</h3>
+  <div class="tablewrap">
+  <table>
+    <caption>Кому, каде и како</caption>
+    <thead><tr><th scope="col">Публика</th><th scope="col">Канал</th><th scope="col">Како</th></tr></thead>
+    <tbody>
+      <tr><td>Деца 6 до 14 години</td><td>Училишта, наставници</td><td>Летоци и покани за паралелки, посети на училиштата</td></tr>
+      <tr><td>Родители</td><td>Facebook, Viber групи</td><td>Кратка објава со ден, час, цена и возраст</td></tr>
+      <tr><td>Млади 15 до 25 години</td><td>Instagram, TikTok</td><td>Кратки видеа од проби и зад сцена</td></tr>
+      <tr><td>Пензионери</td><td>Локално радио и ТВ, постери, клубови на пензионери</td><td>Крупни букви на постерот, лична покана</td></tr>
+      <tr><td>Сите граѓани</td><td>Веб страна, огласна табла пред Домот</td><td>Месечна програма на едно место</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Чекор 4. Тон</h3>
+  <ul>
+    <li class="yes">Топол и пријателски. Како сосед што ве кани.</li>
+    <li class="yes">Кратки реченици. Една порака во една објава.</li>
+    <li class="yes">Секогаш: што, кога, каде, колку чини, за кого.</li>
+    <li class="no">Без службен јазик и долги параграфи.</li>
+  </ul>
+
+  <h3>Чекор 5. Уникатност и содржина</h3>
+  <p>Домот има свој фотограф. Секој настан останува зачуван како емоција во дигитална форма. Тоа е силна содржина.</p>
+  <ul>
+    <li>Фотографии од публиката по секој настан. Луѓето сакаат да се видат себеси.</li>
+    <li>Серија „Лица на Домот“: кратка приказна за еден посетител или вработен.</li>
+    <li>Изложба на фотографии од децата од фото секцијата.</li>
+    <li>Видео „Зад сцена“ пред секоја премиера.</li>
+  </ul>
+</section>
+
+<!-- 4 -->
+<section id="foto">
+  <h2>4. Бесплатна фото секција за деца</h2>
+  <p>По повод Детската недела, Домот отвори бесплатни часови по фотографија.</p>
+
+  <div class="facts">
+    <div class="fact"><b>Кога</b><div>Секоја среда, 13:00</div></div>
+    <div class="fact"><b>За кого</b><div>Деца од 10 до 14 години</div></div>
+    <div class="fact"><b>Цена</b><div>Бесплатно</div></div>
+    <div class="fact"><b>Пријава</b><div>Не е потребна</div></div>
+    <div class="fact"><b>Каде</b><div>Дом на култура „Македонија“</div></div>
+    <div class="fact"><b>Траење</b><div>Октомври до мај</div></div>
+    <div class="fact"><b>Ментор</b><div>Стефани, фотограф на Домот</div></div>
+    <div class="fact"><b>Контакт</b><div>Viber група за родители</div></div>
+  </div>
+
+  <h3>Готова објава за копирање</h3>
+  <p class="noprint">Притиснете го копчето. Текстот оди во меморија. Залепете го на Facebook или Viber.</p>
+  <div class="copy" id="fotoPost">📸 Бесплатна фото секција за деца!
+
+Кога: секоја среда во 13:00 часот
+Каде: Дом на култура „Македонија“, Гевгелија
+За кого: деца од 10 до 14 години
+Цена: бесплатно
+Пријава: не е потребна. Само дојдете!
+
+Ментор: Стефани, фотограф на Домот.
+Секцијата трае од октомври до мај.</div>
+  <div class="row"><button type="button" data-copy="fotoPost">Копирај ја објавата</button></div>
+</section>
+
+<!-- 5 -->
+<section id="biblioteka">
+  <h2>5. Решение за Библиотеката „Гоце Делчев“, Гевгелија</h2>
+  <p><span class="tag">2027 до 2028</span></p>
+  <div class="key">
+    <p><strong>Цел:</strong> повеќе луѓе да ја знаат библиотеката, да ја користат нејзината понуда и да станат членови. Да ја поттикнеме читачката култура кај сите генерации.</p>
+  </div>
+
+  <h3>Чекор 1 и 2. Предизвици и решенија</h3>
+  <div class="tablewrap">
+  <table>
+    <caption>Секој предизвик има едно конкретно решение</caption>
+    <thead><tr><th scope="col">Предизвик</th><th scope="col">Решение</th></tr></thead>
+    <tbody>
+      <tr><td>1. Помал интерес за читање, особено кај најмладите</td><td>Читачки клуб за деца секоја сабота. Читање на глас со ученици. Награда за „читач на месецот“.</td></tr>
+      <tr><td>2. Малку пари за нови книги, опрема и технологија</td><td>Акција „Подари книга“. Апликации за грантови и донации од локални фирми.</td></tr>
+      <tr><td>3. Застарен книжен фонд</td><td>Анкета: кои книги ги бараат граѓаните. Купувајте прво тие наслови.</td></tr>
+      <tr><td>4. Дигитализација</td><td>Онлајн каталог. Почнете со најбараните и најстарите вредни книги.</td></tr>
+      <tr><td>5. Недостаток на кадар</td><td>Волонтери од средните училишта. Тие помагаат и добиваат потврда.</td></tr>
+      <tr><td>6. Недоволна промоција</td><td>Редовни објави 3 пати неделно. Шаблонот подолу.</td></tr>
+      <tr><td>7. Несоодветни простории</td><td>Мал агол за читање со перничиња. Читање во парк во лето.</td></tr>
+      <tr><td>8. Привлекување нови корисници</td><td>Бесплатна членарина првиот месец. Членска карта за секој првач.</td></tr>
+      <tr><td>9. Зачувување на библиотечниот фонд</td><td>Јавна кампања „Чувај ја книгата“. Приказни за најстарите книги.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Чекор 3. Публика и канали</h3>
+  <ul>
+    <li><strong>Деца и ученици:</strong> училишта, наставници, читачки клуб.</li>
+    <li><strong>Родители:</strong> Facebook, Viber групи на паралелки.</li>
+    <li><strong>Млади:</strong> Instagram. Кратки препораки „1 книга за 1 минута“.</li>
+    <li><strong>Возрасни и пензионери:</strong> локално радио, постери, лична покана.</li>
+    <li><strong>Фирми и донатори:</strong> е-пошта и лична средба.</li>
+  </ul>
+
+  <h3>Чекор 4. Тон</h3>
+  <p>Мирен, топол и поканувачки. Библиотеката е место каде секој е добредојден. Без строги правила во објавите.</p>
+
+  <h3>Чекор 5. Уникатност и содржина</h3>
+  <ul>
+    <li>Библиотеката чува книги и приказни што ги нема никаде на друго место во Гевгелија.</li>
+    <li>Серија „Книгата што ме смени“: граѓани препорачуваат една книга.</li>
+    <li>„Од архивата“: стара книга или фотографија со кратка приказна.</li>
+    <li>Новите наслови секој месец, со слика од корицата.</li>
+  </ul>
+</section>
+
+<!-- 6 -->
+<section id="plan">
+  <h2>6. План за 12 месеци</h2>
+  <p>Еден план за двете институции. Секој квартал има една главна задача.</p>
+  <div class="tablewrap">
+  <table>
+    <caption>Чекори низ годината</caption>
+    <thead><tr><th scope="col">Период</th><th scope="col">Главна задача</th><th scope="col">Конкретни акции</th></tr></thead>
+    <tbody>
+      <tr><td>Месец 1 до 3</td><td>Подготовка</td><td>Запишете ги денешните бројки. Отворете ги профилите. Направете календар на објави.</td></tr>
+      <tr><td>Месец 4 до 6</td><td>Редовност</td><td>3 објави неделно. Прв ден на отворени врати. Прва наградна игра.</td></tr>
+      <tr><td>Месец 7 до 9</td><td>Нова публика</td><td>Посети на училишта. Летни настани надвор. Соработка меѓу Домот и Библиотеката.</td></tr>
+      <tr><td>Месец 10 до 12</td><td>Евалуација</td><td>Споредете ги бројките. Анкета со публиката. План за следната година.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="key"><p><strong>Заедничка идеја:</strong> децата од фото секцијата ги фотографираат настаните во Библиотеката. Двете институции добиваат содржина, а децата добиваат пракса.</p></div>
+</section>
+
+<!-- 7 -->
+<section id="merenje">
+  <h2>7. Како мериме дали успеваме</h2>
+  <p>Запишете ги овие бројки на почеток. Проверете ги секои 3 месеци.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th scope="col">Што мериме</th><th scope="col">Пример за цел по 1 година</th></tr></thead>
+    <tbody>
+      <tr><td>Посетители на настани</td><td>20% повеќе</td></tr>
+      <tr><td>Нови членови на Библиотеката</td><td>100 нови членови</td></tr>
+      <tr><td>Деца во фото секцијата</td><td>15 деца редовно</td></tr>
+      <tr><td>Следачи на Facebook и Instagram</td><td>30% повеќе</td></tr>
+      <tr><td>Објави неделно</td><td>Најмалку 3, без прекин</td></tr>
+      <tr><td>Задоволство на публиката (анкета)</td><td>Оценка 4 од 5 или повеќе</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Ова се примери. Поставете цели според вашите почетни бројки.</p>
+</section>
+
+<!-- 8 -->
+<section id="sablon">
+  <h2>8. Празен шаблон за пополнување</h2>
+  <p>Пополнете го за вашата институција. Текстот се чува во вашиот прелистувач. Можете да го испечатите.</p>
+  <form id="tpl" onsubmit="return false">
+    <label for="f0">Име на институцијата</label>
+    <textarea id="f0" rows="1"></textarea>
+    <label for="f1">1. Предизвици. Што не функционира?</label>
+    <textarea id="f1"></textarea>
+    <label for="f2">2. Тактики. Кои акции ќе направиме?</label>
+    <textarea id="f2"></textarea>
+    <label for="f3">3. Публика и канали. Кому и каде?</label>
+    <textarea id="f3"></textarea>
+    <label for="f4">4. Тон. Како зборуваме?</label>
+    <textarea id="f4"></textarea>
+    <label for="f5">5. Уникатност и содржина. Што имаме само ние?</label>
+    <textarea id="f5"></textarea>
+    <label for="f6">6. Евалуација. Кои бројки ќе ги следиме?</label>
+    <textarea id="f6"></textarea>
+    <div class="row">
+      <button type="button" id="print">Испечати</button>
+      <button type="button" id="clear">Избриши сè</button>
+      <span id="saved" class="ok" aria-live="polite"></span>
+    </div>
+  </form>
+</section>
+
+<!-- 9 -->
+<section id="jasno">
+  <h2>9. Правила за јасни објави</h2>
+  <p>Овие правила помагаат на сите. Особено на луѓе со дислексија, слаб вид и постари лица.</p>
+  <ul>
+    <li class="yes">Кратки реченици. До 15 зборови.</li>
+    <li class="yes">Важното на почеток: што, кога, каде.</li>
+    <li class="yes">Темен текст на светла позадина. Силен контраст.</li>
+    <li class="yes">Едноставен фонт без украси, на пример Verdana или Arial.</li>
+    <li class="yes">Големи букви на постерите. Најмалку 24 точки за главниот текст.</li>
+    <li class="yes">Опис на секоја слика за луѓе што не гледаат добро.</li>
+    <li class="no">Без текст преку фотографија.</li>
+    <li class="no">Без закосени букви и без текст само со ГОЛЕМИ БУКВИ.</li>
+    <li class="no">Без повеќе од 2 до 3 емотикони во објава.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <p>Изработено врз основа на вежбите од работилницата за комуникациски стратегии, Гевгелија.</p>
+  <p><a href="#main">Назад на врвот</a></p>
+</footer>
+
+<script>
+(function(){
+  var b=document.body, root=document.documentElement, store=window.localStorage;
+  var size=parseInt(store.getItem('fs')||'20',10);
+  function applySize(){root.style.setProperty('--fs',size+'px');store.setItem('fs',size);}
+  if(store.getItem('fs')) applySize();
+  document.getElementById('bigger').onclick=function(){size=Math.min(size+2,32);applySize();};
+  document.getElementById('smaller').onclick=function(){size=Math.max(size-2,16);applySize();};
+
+  function toggle(id,cls){
+    var btn=document.getElementById(id);
+    function set(on){b.classList.toggle(cls,on);btn.setAttribute('aria-pressed',on);store.setItem(cls,on?'1':'0');}
+    set(store.getItem(cls)==='1');
+    btn.onclick=function(){set(!b.classList.contains(cls));};
+  }
+  toggle('contrast','contrast'); toggle('spacing','spacing');
+
+  var sp=document.getElementById('speak');
+  if(!('speechSynthesis' in window)){sp.style.display='none';}
+  sp.onclick=function(){
+    if(speechSynthesis.speaking){speechSynthesis.cancel();sp.setAttribute('aria-pressed','false');sp.textContent='Читај на глас';return;}
+    var sel=String(window.getSelection()||'').trim();
+    var text=sel||document.getElementById('main').innerText;
+    var u=new SpeechSynthesisUtterance(text); u.lang='mk-MK'; u.rate=0.9;
+    var v=speechSynthesis.getVoices().filter(function(x){return /^(mk|sr|bg)/i.test(x.lang);})[0];
+    if(v) u.voice=v;
+    u.onend=function(){sp.setAttribute('aria-pressed','false');sp.textContent='Читај на глас';};
+    speechSynthesis.speak(u); sp.setAttribute('aria-pressed','true'); sp.textContent='Стоп читање';
+  };
+
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.onclick=function(){
+      var t=document.getElementById(btn.dataset.copy).innerText;
+      navigator.clipboard.writeText(t).then(function(){btn.textContent='Копирано ✔';setTimeout(function(){btn.textContent='Копирај ја објавата';},2500);});
+    };
+  });
+
+  var saved=document.getElementById('saved');
+  document.querySelectorAll('#tpl textarea').forEach(function(t){
+    t.value=store.getItem('tpl-'+t.id)||'';
+    t.addEventListener('input',function(){store.setItem('tpl-'+t.id,t.value);saved.textContent='Зачувано ✔';});
+  });
+  document.getElementById('print').onclick=function(){window.print();};
+  document.getElementById('clear').onclick=function(){
+    if(!confirm('Да се избрише ли целиот текст од шаблонот?'))return;
+    document.querySelectorAll('#tpl textarea').forEach(function(t){t.value='';store.removeItem('tpl-'+t.id);});
+    saved.textContent='Избришано';
+  };
+})();
+</script>
+</body>
+</html>
